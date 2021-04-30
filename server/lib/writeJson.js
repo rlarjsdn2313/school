@@ -17,33 +17,40 @@ function getNum() {
     return no
 }
 
+function makeResult(no, date, article) {
+    
+    return`{
+    "no" : ${no},
+    "date" : [${date[0]}, ${date[1]}, ${date[2]}],
+    "article" : "${article}"
+}`
+}
+
 function writeJson(no, article) {
     let time = getTime()
     if (no == 0) {
         
         var result = 
-        `
-        {
+        `{
             "no" : ${getNum()},
             "date" : [${time[0]}, ${time[1]}, ${time[2]}],
             "article" : "${article}"
-        }
-        `
+        }`
+        
 
-        fs.writeFileSync(`${DATAPATH}${getNum()}.json`, result, 'utf8');
+        fs.writeFileSync(`${DATAPATH}${getNum()}.json`, makeResult(getNum(), time, article), 'utf8');
     } else {
-        if (checkFile(no) === false) {
+        if (checkFile(`${DATAPATH}`, no) === false) {
             return
         } else {
             var result = 
-            `
-            {
-                "no" : ${getNum()},
+            `{
+                "no" : ${no},
                 "date" : [${time[0]}, ${time[1]}, ${time[2]}],
                 "article" : "${article}"
-            }
-            `
-            fs.writeFileSync(`${DATAPATH}${getNum()}.json`, result, 'utf8');
+            }`
+            
+            fs.writeFileSync(`${DATAPATH}${no}.json`, makeResult(no, time, article), 'utf8');
         }
     }
 }
