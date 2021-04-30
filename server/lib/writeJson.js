@@ -1,42 +1,49 @@
+// Import fs module
 var fs = require('fs')
 
-
+// Import checkFile and getTime modules
 var checkFile = require('./checkFile').checkFile
 var getTime = require('./getTime').getTime
 
+var DATAPATH = './data/'
+
 function getNum() {
-    let i = 1
-    while (checkFile(i) === true) {
-        i++
+    no = 1
+    while (checkFile(DATAPATH, no) === true) {
+        no = no + 1
     }
-    return i
+    return no
 }
 
 function writeJson(no, article) {
-    if (no === 0) {
-        let result = {
-            "no" : getNum(),
-            "date" : getTime(),
-            "article" : article
+    let time = getTime()
+    if (no == 0) {
+        
+        var result = 
+        `
+        {
+            "no" : ${getNum()},
+            "date" : [${time[0]}, ${time[1]}, ${time[2]}],
+            "article" : "${article}"
         }
+        `
 
-        fs.writeFile(`./data/${getNum()}.json`, result, 'utf8', function(err) {})
-
+        fs.writeFileSync(`${DATAPATH}${getNum()}.json`, result, 'utf8');
     } else {
         if (checkFile(no) === false) {
             return
         } else {
-
-            let result = {
-                "no" : no,
-                "date" : getTime(),
-                "article" : article
+            var result = 
+            `
+            {
+                "no" : ${getNum()},
+                "date" : [${time[0]}, ${time[1]}, ${time[2]}],
+                "article" : "${article}"
             }
-            fs.writeFile(`./data/${no}.json`, result, 'utf8', function(err) {})
+            `
+            fs.writeFileSync(`${DATAPATH}${getNum()}.json`, result, 'utf8');
         }
     }
-
-    return
 }
 
 module.exports.writeJson = writeJson
