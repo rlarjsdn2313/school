@@ -1,1 +1,5 @@
+# except node_modules(too big and not in need)
 node_modules/
+
+# for secret
+key.json
