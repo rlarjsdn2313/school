@@ -21,9 +21,8 @@ router.get('/:no/:input', function(req, res) {
         res.send({
             "no" : undefined,
             "date" : undefined,
-            "article" : undefined,
-            "photo" : undefined
-        })
+            "article" : undefined
+            })
     }
 })
 
