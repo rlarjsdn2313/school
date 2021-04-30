@@ -5,8 +5,10 @@ var fs = require('fs')
 var checkFile = require('./checkFile').checkFile
 var getTime = require('./getTime').getTime
 
+// Datapath(PLZ someone union this)
 var DATAPATH = './data/'
 
+// Get empty no
 function getNum() {
     no = 1
     while (checkFile(DATAPATH, no) === true) {
@@ -46,4 +48,5 @@ function writeJson(no, article) {
     }
 }
 
+// Export
 module.exports.writeJson = writeJson

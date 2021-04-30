@@ -1,5 +1,7 @@
 var express = require('express')
 var router = express.Router()
+
+// Import checkKey and writeJson modules
 var checkKey = require('../lib/checkKey').checkKey
 var writeJson = require('../lib/writeJson').writeJson
 
@@ -9,8 +11,11 @@ router.get('/:no/:article/:input', function(req, res) {
         let article = req.params.article
         let input = req.params.input
     
+        // Check key
         if (checkKey('admin', input) === true) {
+            // Write file
             writeJson(no, article)
+            // Send key
             res.send({"success" : true})
         } else {
             res.send({"success" : false})
