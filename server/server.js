@@ -9,6 +9,8 @@ const cors = require('cors')
 const check = require('./routes/check')
 const read = require('./routes/read')
 const write = require('./routes/write')
+const unlink = require('./routes/unlink')
+
 
 // Set port as 4000(You may change, except 3000, it's for react)
 const port = 4000
@@ -20,8 +22,10 @@ app.use(cors())
 app.use('/api/check', check)
 app.use('/api/read', read)
 app.use('/api/write', write)
+app.use('/api/unlink', unlink)
 
 app.get('/', function(req, res) {
+    console.log(d(2))
 })
 
 // Listening part

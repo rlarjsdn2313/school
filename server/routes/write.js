@@ -14,7 +14,9 @@ router.get('/:no/:article/:input', function(req, res) {
         // Check key
         if (checkKey('admin', input) === true) {
             // Write file
-            writeJson(no, article)
+            if (writeJson(no, article) === -1) {
+                res.send({"success" : false})
+            }
             // Send key
             res.send({"success" : true})
         } else {

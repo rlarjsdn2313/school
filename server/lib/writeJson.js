@@ -28,28 +28,12 @@ function makeResult(no, date, article) {
 
 function writeJson(no, article) {
     let time = getTime()
-    if (no == 0) {
-        
-        var result = 
-        `{
-            "no" : ${getNum()},
-            "date" : [${time[0]}, ${time[1]}, ${time[2]}],
-            "article" : "${article}"
-        }`
-        
-
+    if (no == 0) {        
         fs.writeFileSync(`${DATAPATH}${getNum()}.json`, makeResult(getNum(), time, article), 'utf8');
     } else {
         if (checkFile(`${DATAPATH}`, no) === false) {
-            return
+            return -1
         } else {
-            var result = 
-            `{
-                "no" : ${no},
-                "date" : [${time[0]}, ${time[1]}, ${time[2]}],
-                "article" : "${article}"
-            }`
-            
             fs.writeFileSync(`${DATAPATH}${no}.json`, makeResult(no, time, article), 'utf8');
         }
     }
