@@ -14,6 +14,7 @@ router.get('/:no/:input', function(req, res) {
     let no = req.params.no
     let input = req.params.input
 
+    // Checking...
     if (checkFile(DATAPATH, no) && (checkKey('default', input) === true || checkKey('admin', input) === true)) {
         res.send(readJson(`${DATAPATH}${no}.json`))
     } else {
