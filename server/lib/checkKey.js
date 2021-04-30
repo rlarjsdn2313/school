@@ -1,14 +1,13 @@
-var fs = require('fs')
+// Import readJson module
+var readJson = require('./readJson').readJson
 
+// Path of key.json
 var KEYPATH = './key.json'
 
-function readKey() {
-    let keyFile = fs.readFileSync(KEYPATH, 'utf8')
-    return JSON.parse(keyFile)
-}
+
 
 function checkKey(mode, input) {
-    key = readKey()
+    key = readJson(KEYPATH)
     check = false
 
     if (mode === 'default') {

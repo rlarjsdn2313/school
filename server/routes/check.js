@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router();
-var checkKey = require('../lib/checkKey')
+var checkKey = require('../lib/checkKey').checkKey
 
 // Checking password
 router.get('/:mode/:input', function(req, res) {
@@ -8,7 +8,7 @@ router.get('/:mode/:input', function(req, res) {
     let input = req.params.input
 
     res.send({
-        "check" : checkKey.checkKey(mode, input)
+        "check" : checkKey(mode, input)
     })
 })
 
