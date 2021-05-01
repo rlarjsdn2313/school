@@ -2,6 +2,8 @@ var fs = require('fs')
 var path = require('path')
 
 var checkFile = require('./checkFile').checkFile
+var readJson = require('./readJson').readJson
+var writeJson = require('./writeJson').writeJson
 
 var DATAPATH = './data/'
 
@@ -31,6 +33,9 @@ function deleteJson(no) {
 
     var i = 0
     while (i < CFiles.length) {
+        var a = readJson(`${DATAPATH}${CFiles[i]}.json`)
+        a.no = a.no - 1
+        writeJson(cFiles[i], a.article)
         fs.renameSync(`${DATAPATH}${CFiles[i]}.json`, `${DATAPATH}${CFiles[i]-1}.json`)
         i = i + 1
     }

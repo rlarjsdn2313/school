@@ -38,7 +38,6 @@ function Login(props) {
         setCookie('password', value)
     })
 
-    console.log(checkA, checkD)
     return (
         <div className="Login">
             <input placeholder="Password" value={ value } onChange={ onChange }></input>

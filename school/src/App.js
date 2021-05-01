@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import Login from './Components/Login'
+import Article from './Components/Article'
 
 function App() {
   const [check, setCheck] = useState('nothing')
-  console.log(check)
   
   if (check == 'default') {
     return (
       <div className="App">
-        hello
+        <Article no="2" password="hello"></Article>
       </div>
     )
   } else {
