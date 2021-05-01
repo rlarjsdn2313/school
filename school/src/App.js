@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Login from './Components/Login'
 import Articles from './Components/Articles'
+import './CSS/App.css'
 
 function App() {
   const [check, setCheck] = useState('nothing')

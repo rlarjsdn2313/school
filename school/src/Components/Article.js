@@ -3,7 +3,7 @@ import Parser from 'html-react-parser';
 function Article(props) {
     const [data, setData] = useState(0)
     
-    fetch('http://localhost:4000/api/read/' + props.no + '/' + props.password)
+    fetch('http://192.168.219.186:4000/api/read/' + props.no + '/' + props.password)
         .then(res => res.json())
         .then(res => setData(res))
 

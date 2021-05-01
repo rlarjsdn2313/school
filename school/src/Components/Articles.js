@@ -6,7 +6,7 @@ function Articles() {
     const [data, setData] = useState(0)
     const [cookies] = useCookies(['password']);
 
-    fetch('http://localhost:4000/api/read/0/' + cookies.password)
+    fetch('http://192.168.219.186:4000/api/read/0/' + cookies.password)
     .then(res => res.json())
     .then(res => setData(res))
 

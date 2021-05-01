@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie';
+import '../CSS/Login.css'
 
 function Login(props) {
     // State for input value
@@ -13,11 +14,11 @@ function Login(props) {
 
     // If value == '' it makes error
     if (value !== '') {
-        fetch('http://localhost:4000/api/check/default/' + value)
+        fetch('http://192.168.219.186:4000/api/check/default/' + value)
         .then(res => res.json())
         .then(res => setCheckD(res.check))
 
-        fetch('http://localhost:4000/api/check/admin/' + value)
+        fetch('http://192.168.219.186:4000/api/check/admin/' + value)
             .then(res => res.json())
             .then(res => setCheckA(res.check))
     }
@@ -40,7 +41,11 @@ function Login(props) {
 
     return (
         <div className="Login">
-            <input placeholder="Password" value={ value } onChange={ onChange }></input>
+            <div className="box1">
+                <div className="h1">비밀번호<br></br>입력</div>
+                <input className="password" placeholder="Password" value={ value } onChange={ onChange }></input>
+            </div>
+            
         </div>
     )
 }
