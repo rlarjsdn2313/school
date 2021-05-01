@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useCookies } from 'react-cookie';
 
 function Login(props) {
     // State for input value
@@ -7,6 +8,8 @@ function Login(props) {
     const [checkA, setCheckA] = useState(false)
     // State for check(default)
     const [checkD, setCheckD] = useState(false)
+
+    const [cookies, setCookie, removeCookie] = useCookies(['password'])
 
     // If value == '' it makes error
     if (value !== '') {
@@ -20,8 +23,10 @@ function Login(props) {
     }
 
 
-    const onChange = e => setValue(e.target.value)
-    
+    const onChange = e => {
+        setValue(e.target.value)
+        
+    }
     useEffect(() => {
         if (checkA === true) {
             props.setCheck('admin')
@@ -30,12 +35,12 @@ function Login(props) {
         } else {
             props.setCheck('nothing')
         }
+        setCookie('password', value)
     })
 
     console.log(checkA, checkD)
     return (
         <div className="Login">
-            { value }
             <input placeholder="Password" value={ value } onChange={ onChange }></input>
         </div>
     )
