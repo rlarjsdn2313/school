@@ -16,8 +16,8 @@ function Article(props) {
     } else {
         return (
             <div className="Article">
-                <h1>{ data.date[0] }년 { data.date[1] }월 { data.date[2] }일</h1>
-                <div>
+                <h1 className="date">{ data.date[0] }년 { data.date[1] }월 { data.date[2] }일</h1>
+                <div className="content">
                     {Parser(data.article)}
                 </div>
             </div>

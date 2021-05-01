@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Article from './Article'
 import { useCookies } from 'react-cookie';
+import '../CSS/Articles.css'
 
 function Articles() {
     const [data, setData] = useState(0)
@@ -24,7 +25,15 @@ function Articles() {
 
         const mapToComponent = no_list => {
             return no_list.map((no, i) => {
-                return (<Article no={ no } password={ cookies.password } key={ i }></Article>)
+                return (
+                    <div>
+                        <Article no={ no } password={ cookies.password } key={ i }></Article>
+                        <br></br>
+                        <hr width="70%" align="center" color="#FFFFF3" />
+                        <br></br>
+                    </div>
+                
+                )
             })
         }
 

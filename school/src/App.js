@@ -9,6 +9,10 @@ function App() {
   if (check === 'default') {
     return (
       <div className="App">
+        <header class="title">
+          <a class="title_text">208</a>
+        </header>
+        <br></br><br></br><br></br><br></br><br></br>
         <Articles></Articles>
       </div>
     )
