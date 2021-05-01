@@ -7,7 +7,7 @@ function Articles() {
     const [data, setData] = useState(0)
     const [cookies] = useCookies(['password']);
 
-    fetch('http://192.168.219.186:4000/api/read/0/' + cookies.password)
+    fetch('http://christmasletter.tk:3000/api/read/0/' + cookies.password)
     .then(res => res.json())
     .then(res => setData(res))
 
@@ -27,7 +27,7 @@ function Articles() {
             return no_list.map((no, i) => {
                 return (
                     <div>
-                        <Article no={ no } password={ cookies.password } key={ i }></Article>
+                        <Article no={ no } password={ cookies.password } key={ no }></Article>
                         <br></br>
                         <hr width="70%" align="center" color="#FFFFF3" />
                         <br></br>

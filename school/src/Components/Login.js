@@ -14,11 +14,11 @@ function Login(props) {
 
     // If value == '' it makes error
     if (value !== '') {
-        fetch('http://192.168.219.186:4000/api/check/default/' + value)
+        fetch('http://christmasletter.tk:3000/api/check/default/' + value)
         .then(res => res.json())
         .then(res => setCheckD(res.check))
 
-        fetch('http://192.168.219.186:4000/api/check/admin/' + value)
+        fetch('http://christmasletter.tk:3000/api/check/admin/' + value)
             .then(res => res.json())
             .then(res => setCheckA(res.check))
     }
