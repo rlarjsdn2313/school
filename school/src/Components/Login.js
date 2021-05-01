@@ -9,7 +9,7 @@ function Login(props) {
     // State for check(default)
     const [checkD, setCheckD] = useState(false)
 
-    const [cookies, setCookie, removeCookie] = useCookies(['password'])
+    const setCookie = useCookies(['password'])[1]
 
     // If value == '' it makes error
     if (value !== '') {

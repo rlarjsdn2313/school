@@ -22,7 +22,7 @@ app.use(cors())
 app.use('/api/check', check)
 app.use('/api/read', read)
 app.use('/api/write', write)
-app.use('/api/unlink', unlink)
+// app.use('/api/unlink', unlink)
 
 app.get('/', function(req, res) {
     console.log('')

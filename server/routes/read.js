@@ -33,7 +33,6 @@ router.get('/:no/:input', function(req, res) {
     if (checkFile(DATAPATH, no) && (checkKey('default', input) === true || checkKey('admin', input) === true)) {
         res.send(readJson(`${DATAPATH}${no}.json`))
     } else if (no == 0 && (checkKey('default', input) === true || checkKey('admin', input) === true)) {
-        console.log(i-1)
         res.send(readJson(`${DATAPATH}${files[i-1]}.json`))
     }
         else {
